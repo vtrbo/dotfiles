@@ -4,7 +4,6 @@
 
 export PATH="$PNPM_HOME:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
-export PNPM_HOME="/Users/vtrbo/Library/pnpm"
 
 # -------------------------------- #
 # Oh My Zsh Manager
@@ -144,7 +143,6 @@ function gdc() {
 # C Put
 # `cv` ~/Code/vtrbo => for my projects
 # `cg` ~/Code/github => for my clones
-# `cm` ~/Code/muyuan => for my companys
 # -------------------------------- #
 
 function cv() {
@@ -153,10 +151,6 @@ function cv() {
 
 function cg() {
   cd ~/Code/github/$1
-}
-
-function cm() {
-  cd ~/Code/muyuan/$1
 }
 
 function pr() {
@@ -188,16 +182,12 @@ function clg() {
   cg && clone "$@" && vs .
 }
 
-function vsv() {
-  cv && vs "$@"
+function vsv() { 
+  cv && vs "$@" && cd "$@"
 }
 
 function vsg() {
-  cg && vs "$@"
-}
-
-function wsm() {
-  cm && ws "$@"
+  cg && vs "$@" && cd "$@"
 }
 
 function serve() {
