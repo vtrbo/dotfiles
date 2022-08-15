@@ -4,6 +4,7 @@
 
 export PATH="$PNPM_HOME:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
+export PNPM_HOME="~/Library/pnpm"
 
 # -------------------------------- #
 # Oh My Zsh Manager
@@ -58,6 +59,13 @@ alias lint="nr lint"
 alias lintf="nr lint --fix"
 alias release="nr release"
 alias re="nr release"
+
+# -------------------------------- #
+# NRM manager
+# -------------------------------- #
+
+alias un="nrm use npm"
+alias ut="nrm use taobao"
 
 # -------------------------------- #
 # IDEA Manager
@@ -143,6 +151,7 @@ function gdc() {
 # C Put
 # `cv` ~/Code/vtrbo => for my projects
 # `cg` ~/Code/github => for my clones
+# `cp` ~/Code/party => for my party
 # -------------------------------- #
 
 function cv() {
@@ -151,6 +160,10 @@ function cv() {
 
 function cg() {
   cd ~/Code/github/$1
+}
+
+function cp() {
+  cd ~/code/party/$1
 }
 
 function pr() {
@@ -182,12 +195,20 @@ function clg() {
   cg && clone "$@" && vs .
 }
 
-function vsv() { 
+function clp() {
+  cp && clone "$@" && vs .
+}
+
+function vsv() {
   cv && vs "$@" && cd "$@"
 }
 
 function vsg() {
   cg && vs "$@" && cd "$@"
+}
+
+function vsp() {
+  cp && vs "$@" && cd "$@"
 }
 
 function serve() {
